@@ -8,5 +8,9 @@ export default {
   ],
   '*.{css,scss}': [
     'prettier --write'
+  ],
+  // 对测试文件运行相关测试
+  '**/*.{test,spec}.{js,jsx,ts,tsx}': [
+    'vitest related --run --reporter=verbose'
   ]
 };

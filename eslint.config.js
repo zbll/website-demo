@@ -5,6 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
+import vitestPlugin from 'eslint-plugin-vitest';
 import globals from 'globals';
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -86,6 +87,29 @@ export default [
     }
   },
 
+  // Vitest 配置
+  {
+    plugins: {
+      vitest: vitestPlugin
+    },
+    rules: {
+      ...vitestPlugin.configs.recommended.rules,
+      'vitest/consistent-test-it': ['error', { fn: 'it' }],
+      'vitest/no-identical-title': 'error',
+      'vitest/no-disabled-tests': 'warn',
+      'vitest/no-focused-tests': 'error',
+      'vitest/no-conditional-expect': 'error',
+      'vitest/no-conditional-in-test': 'error',
+      'vitest/no-conditional-tests': 'error',
+      'vitest/no-test-return-statement': 'error',
+      'vitest/prefer-to-be': 'error',
+      'vitest/prefer-to-contain': 'error',
+      'vitest/prefer-to-have-length': 'error',
+      'vitest/valid-expect': 'error',
+      'vitest/valid-title': 'error',
+    }
+  },
+
 
   // 全局环境配置
   {
@@ -93,7 +117,8 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.es2022,
-        ...globals.node
+        ...globals.node,
+        ...vitestPlugin.environments.env.globals
       },
       parserOptions: {
         ecmaVersion: 'latest',
