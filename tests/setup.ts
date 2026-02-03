@@ -5,6 +5,9 @@ import * as matchers from '@testing-library/jest-dom/matchers';
 // 扩展 expect 匹配器
 expect.extend(matchers);
 
+const a = 1;
+console.log(a);
+
 // 在每个测试后清理 React Testing Library 的渲染结果
 afterEach(() => {
   cleanup();
