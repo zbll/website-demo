@@ -14,7 +14,7 @@
     "spellcheck": "cspell \"**/*.{ts,tsx,js,jsx,md,json}\"",
     "spellcheck:fix": "cspell \"**/*.{ts,tsx,js,jsx,md,json}\" --fix",
     "prepare": "husky",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged && pnpm typecheck"
   },
   "dependencies": {
     "@react-router/node": "7.12.0",
