@@ -6,7 +6,15 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "spellcheck": "cspell \"**/*.{ts,tsx,js,jsx,md,json}\"",
+    "spellcheck:fix": "cspell \"**/*.{ts,tsx,js,jsx,md,json}\" --fix",
+    "prepare": "husky",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@react-router/node": "7.12.0",
@@ -17,13 +25,29 @@
     "react-router": "7.12.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@react-router/dev": "7.12.0",
     "@tailwindcss/vite": "^4.1.13",
     "@types/node": "^22",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "cspell": "^8.18.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "globals": "^17.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.10",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
+    "typescript-eslint": "^8.26.0",
     "vite": "^7.1.7",
     "vite-tsconfig-paths": "^5.1.4"
   }

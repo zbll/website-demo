@@ -1,0 +1,16 @@
+# 项目自定义单词
+# 在这里添加项目特定的单词，每行一个
+
+# 项目名称
+learn-skill
+
+# 技术栈相关
+React
+TypeScript
+Vite
+Tailwind
+Router
+SSR
+
+# 项目特定术语
+# 添加你的项目特定单词在这里
