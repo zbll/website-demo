@@ -1,5 +1,3 @@
-import { Welcome } from '../welcome/welcome';
-
 import type { Route } from './+types/home';
 
 export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
@@ -10,5 +8,5 @@ export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
 }
 
 export default function Home(): React.ReactElement {
-  return <Welcome />;
+  return <div />;
 }
