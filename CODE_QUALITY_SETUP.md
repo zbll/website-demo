@@ -37,7 +37,10 @@
 - **工具**: Husky + lint-staged
 - **配置文件**: `lint-staged.config.js`
 - **钩子**: pre-commit
-- **功能**: 提交前自动运行代码检查和格式化
+- **功能**: 提交前自动运行:
+  - ESLint 检查并修复
+  - Prettier 格式化
+  - TypeScript 类型检查
 
 ## 可用命令
 
@@ -78,6 +81,7 @@ pnpm start
 1. **自动检查**: 提交时会自动运行:
    - ESLint 检查并修复
    - Prettier 格式化
+   - TypeScript 类型检查
    - 对不同类型的文件应用不同的检查规则
 
 2. **手动检查**: 可以在提交前手动运行:
