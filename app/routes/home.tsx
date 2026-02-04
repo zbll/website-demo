@@ -1,12 +1,28 @@
 import type { Route } from './+types/home';
+import Carousel from '../components/Carousel';
+import Timeline from '../components/timeline/Timeline';
 
 export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
   return [
-    { title: 'New React Router App' },
-    { name: 'description', content: 'Welcome to React Router!' },
+    { title: 'Swiper Carousel Demo' },
+    { name: 'description', content: 'A centered Swiper carousel with random images.' },
   ];
 }
 
 export default function Home(): React.ReactElement {
-  return <div />;
+  return (
+    <main className="min-h-screen bg-slate-950 px-6 py-12 text-white">
+      <section className="mx-auto w-full max-w-[1200px]">
+        <header className="mb-8 space-y-2">
+          <p className="text-sm tracking-[0.35em] text-slate-400 uppercase">Swiper Showcase</p>
+          <h1 className="text-3xl font-semibold sm:text-4xl">焦点轮播图</h1>
+          <p className="max-w-2xl text-base text-slate-300">
+            在桌面端居中显示，最大宽度 1200。每次进入页面会随机挑选 3 张图片。
+          </p>
+        </header>
+        <Carousel />
+        <Timeline />
+      </section>
+    </main>
+  );
 }
