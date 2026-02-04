@@ -9,6 +9,7 @@ type TimelineEntryProps = {
 
 export default function TimelineEntry({ item, index }: TimelineEntryProps): React.ReactElement {
   const { ref, isVisible } = useInView<HTMLLIElement>({ threshold: 0.35 });
+  // 桌面端左右交错排列卡片。
   const isLeft = index % 2 === 0;
 
   return (

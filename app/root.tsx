@@ -55,6 +55,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps): React.ReactE
     details =
       error.status === 404 ? 'The requested page could not be found.' : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
+    // 仅在本地开发环境展示完整错误信息。
     details = error.message;
     stack = error.stack;
   }

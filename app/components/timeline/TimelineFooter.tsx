@@ -11,6 +11,7 @@ export default function TimelineFooter(): React.ReactElement {
     >
       <span
         className={cn(
+          // “仍在继续”提示的短尾线。
           'absolute top-0 left-4 h-10 w-px origin-top -translate-x-1/2 bg-slate-700 transition-transform duration-700 md:left-1/2',
           isVisible ? 'scale-y-100' : 'scale-y-0'
         )}

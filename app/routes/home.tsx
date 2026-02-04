@@ -1,8 +1,10 @@
 import type { Route } from './+types/home';
 import Carousel from '../components/Carousel';
 import Timeline from '../components/timeline/Timeline';
+import FeatureIntro from '../components/feature/FeatureIntro';
 
 export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
+  // 页面级元信息，用于 SEO 与预览。
   return [
     { title: 'Swiper Carousel Demo' },
     { name: 'description', content: 'A centered Swiper carousel with random images.' },
@@ -11,7 +13,7 @@ export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
 
 export default function Home(): React.ReactElement {
   return (
-    <main className="min-h-screen bg-slate-950 px-6 py-12 text-white">
+    <main className="min-h-screen overflow-x-hidden bg-slate-950 px-6 py-12 text-white">
       <section className="mx-auto w-full max-w-300">
         <header className="mb-8 space-y-2">
           <p className="text-sm tracking-[0.35em] text-slate-400 uppercase">Swiper Showcase</p>
@@ -22,6 +24,7 @@ export default function Home(): React.ReactElement {
         </header>
         <Carousel />
         <Timeline />
+        <FeatureIntro />
       </section>
     </main>
   );

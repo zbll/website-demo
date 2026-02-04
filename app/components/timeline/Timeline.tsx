@@ -40,6 +40,7 @@ export default function Timeline(): React.ReactElement {
         <div className="relative pb-6">
           <span
             className={cn(
+              // 进入视口时展开时间轴主线。
               'absolute top-0 left-4 h-full w-px origin-top bg-slate-700 transition-transform duration-700 md:left-1/2 md:-translate-x-1/2',
               isVisible ? 'scale-y-100' : 'scale-y-0'
             )}

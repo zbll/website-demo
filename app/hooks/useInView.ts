@@ -24,6 +24,7 @@ export function useInView<T extends Element>(
       return;
     }
 
+    // 使用 IntersectionObserver 根据进入视口状态切换可见性。
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

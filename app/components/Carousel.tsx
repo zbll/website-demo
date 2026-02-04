@@ -40,6 +40,7 @@ export default function Carousel({
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    // 每次进入页面随机打散，取最新的图片子集。
     const shuffled = [...allImages];
     for (let i = shuffled.length - 1; i > 0; i -= 1) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -79,7 +80,7 @@ export default function Carousel({
           nextEl: nextRef.current,
         }}
         onBeforeInit={(swiper) => {
-          // Swiper expects the DOM nodes to exist before init.
+          // Swiper 需要在初始化前绑定导航按钮的 DOM 节点。
           const baseNavigation =
             typeof swiper.params.navigation === 'object' && swiper.params.navigation !== null
               ? swiper.params.navigation

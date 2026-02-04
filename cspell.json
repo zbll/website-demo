@@ -75,7 +75,8 @@
     "a11y",
     "unmount",
     "unoptimized",
-    "ianvs"
+    "ianvs",
+    "gsap"
   ],
   "ignoreWords": [],
   "useGitignore": true
