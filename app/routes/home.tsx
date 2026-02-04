@@ -12,7 +12,7 @@ export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
 export default function Home(): React.ReactElement {
   return (
     <main className="min-h-screen bg-slate-950 px-6 py-12 text-white">
-      <section className="mx-auto w-full max-w-[1200px]">
+      <section className="mx-auto w-full max-w-300">
         <header className="mb-8 space-y-2">
           <p className="text-sm tracking-[0.35em] text-slate-400 uppercase">Swiper Showcase</p>
           <h1 className="text-3xl font-semibold sm:text-4xl">焦点轮播图</h1>
