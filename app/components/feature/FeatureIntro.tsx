@@ -61,7 +61,7 @@ export default function FeatureIntro(): React.ReactElement {
       // 按断点启用/销毁动画，避免在移动端创建多余的 ScrollTrigger。
       const mm = gsap.matchMedia();
 
-      mm.add('(min-width: 768px)', () => {
+      mm.add('(min-width: 1024px)', () => {
         // 计算横向滚动距离：轨道总宽度 - 视口宽度。
         // 当轨道不超出视口时，不需要横向滚动。
         const getScrollDistance = (): number => track.scrollWidth - viewport.clientWidth;
@@ -112,20 +112,24 @@ export default function FeatureIntro(): React.ReactElement {
   }, []);
 
   return (
-    <div className="mt-16">
+    <div className="pt-16">
       <section
         ref={sectionRef}
-        className="relative right-1/2 left-1/2 -mr-[50vw] -ml-[50vw] w-screen md:h-screen"
+        className="w-full lg:relative lg:right-1/2 lg:left-1/2 lg:-mr-[50vw] lg:-ml-[50vw] lg:h-screen lg:w-screen"
       >
-        <div ref={viewportRef} className="mx-auto h-full w-full max-w-none overflow-hidden px-6">
+        <div
+          ref={viewportRef}
+          className="mx-auto h-full w-full max-w-none overflow-hidden px-0 lg:flex lg:px-6"
+        >
           <div
             ref={trackRef}
             className={cn(
-              'flex w-full flex-col items-center gap-6 px-6 pb-6',
-              'md:h-full md:w-max md:flex-row md:gap-10 md:pr-16 md:pb-8'
+              'flex w-full flex-col gap-6 px-0 pb-6 lg:px-6',
+              'md:grid md:grid-cols-2 md:items-stretch md:gap-6 md:px-4',
+              'lg:flex lg:h-full lg:w-max lg:grid-cols-none lg:flex-row lg:items-center lg:gap-10 lg:pr-16 lg:pb-8'
             )}
           >
-            <div className="w-full shrink-0 space-y-4 md:w-[min(520px,90vw)] md:pr-6">
+            <div className="w-full shrink-0 space-y-4 md:col-span-2 md:text-center lg:w-[min(520px,90vw)] lg:pr-6 lg:text-left">
               <p className="text-sm tracking-[0.35em] text-slate-400 uppercase">Trae</p>
               <h2 className="text-3xl font-semibold sm:text-4xl">TRAE为你解锁全新可能</h2>
             </div>
@@ -134,7 +138,7 @@ export default function FeatureIntro(): React.ReactElement {
                 key={item.title}
                 className={cn(
                   'flex w-full flex-col rounded-3xl bg-slate-950/70',
-                  'shadow-xl shadow-black/40 backdrop-blur md:min-h-[520px] md:max-w-[420px] md:min-w-[380px]'
+                  'shadow-xl shadow-black/40 backdrop-blur md:min-h-[460px] lg:min-h-[520px] lg:max-w-[420px] lg:min-w-[380px]'
                 )}
               >
                 <span className="text-sm font-semibold tracking-[0.2em] text-emerald-300">

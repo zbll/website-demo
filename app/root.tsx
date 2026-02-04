@@ -9,6 +9,7 @@ import {
 
 import type { Route } from './+types/root';
 import './app.css';
+import WaveTextCanvas from './components/background/WaveTextCanvas';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -32,8 +33,9 @@ export function Layout({ children }: { children: React.ReactNode }): React.React
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+      <body className="bg-slate-950 text-white">
+        <WaveTextCanvas />
+        <div className="relative z-10">{children}</div>
         <ScrollRestoration />
         <Scripts />
       </body>
