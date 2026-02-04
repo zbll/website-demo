@@ -138,7 +138,8 @@ export default function FeatureIntro(): React.ReactElement {
                 key={item.title}
                 className={cn(
                   'flex w-full flex-col rounded-3xl bg-slate-950/70',
-                  'shadow-xl shadow-black/40 backdrop-blur md:min-h-[460px] lg:min-h-[520px] lg:max-w-[420px] lg:min-w-[380px]'
+                  'px-2 shadow-xl shadow-black/40 backdrop-blur',
+                  'md:min-h-[460px] lg:min-h-[520px] lg:max-w-[420px] lg:min-w-[380px]'
                 )}
               >
                 <span className="text-sm font-semibold tracking-[0.2em] text-emerald-300">

@@ -10,6 +10,7 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import WaveTextCanvas from './components/background/WaveTextCanvas';
+import useMediaQuery from './hooks/useMediaQuery';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -25,6 +26,8 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }): React.ReactElement {
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+
   return (
     <html lang="en">
       <head>
@@ -33,9 +36,9 @@ export function Layout({ children }: { children: React.ReactNode }): React.React
         <Meta />
         <Links />
       </head>
-      <body className="bg-slate-950 text-white">
-        <WaveTextCanvas />
-        <div className="relative z-10">{children}</div>
+      <body className="h-full w-full bg-slate-950 text-white">
+        {isDesktop ? <WaveTextCanvas /> : null}
+        <div className="relative z-10 h-full w-full">{children}</div>
         <ScrollRestoration />
         <Scripts />
       </body>
