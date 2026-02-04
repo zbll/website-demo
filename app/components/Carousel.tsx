@@ -19,26 +19,50 @@ const defaultImages = [
 ];
 
 type CarouselProps = {
+  /** 自定义轮播内容，传入后将忽略默认图片轮播。 */
   slides?: React.ReactNode[];
+  /** 默认图片数组。 */
   images?: string[];
+  /** 默认图片随机展示数量。 */
   randomCount?: number;
+  /** 容器自定义 className。 */
   className?: string;
+  /** 轮播区域高度 className。 */
   heightClassName?: string;
+  /** 指示器组件。 */
   Indicator?: React.ComponentType<CarouselIndicatorProps>;
+  /** 指示器额外 className。 */
   indicatorClassName?: string;
+  /** 导航组件。 */
   NavigationSlot?: React.ComponentType<CarouselNavigationProps>;
+  /** 导航组件额外 className。 */
   navigationClassName?: string;
+  /** 是否自动播放。 */
   autoplay?: boolean;
+  /** 是否循环。 */
   loop?: boolean;
+  /** 是否显示边框。 */
   showBorder?: boolean;
+  /** 是否显示背景。 */
   showBackground?: boolean;
+  /** 是否显示阴影。 */
   showShadow?: boolean;
+  /** 幻灯片之间的间距（px）。 */
   spaceBetween?: number;
+  /** 是否嵌套在其它 Swiper 内部。 */
   nested?: boolean;
+  /** 触发滑动的最小拖动距离（px）。 */
   threshold?: number;
+  /** 是否在触摸开始时阻止默认事件。 */
   touchStartPreventDefault?: boolean;
 };
 
+/**
+ * 通用轮播组件。
+ * - 默认展示图片轮播，可通过 `slides` 传入自定义内容。
+ * - 支持自定义指示器与导航组件。
+ * - 可配置自动播放、循环、间距与基础样式开关。
+ */
 export default function Carousel({
   slides,
   images = defaultImages,
