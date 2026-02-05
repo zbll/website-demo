@@ -26,7 +26,7 @@ export default function Home(): React.ReactElement {
           </p>
         </header>
         <Carousel
-          className="rounded-3xl"
+          className="h-[600px] rounded-3xl"
           loop
           autoplay
           Indicator={CarouselIndicators}

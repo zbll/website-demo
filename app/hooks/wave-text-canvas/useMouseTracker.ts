@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
-import type { MutableRefObject } from 'react';
+import type { RefObject } from 'react';
 import type { MouseState } from './types';
 
 // 跟踪鼠标位置与速度，写入可变引用供渲染循环读取。
-export const useMouseTracker = (): MutableRefObject<MouseState> => {
+export const useMouseTracker = (): RefObject<MouseState> => {
   const mouseRef = useRef<MouseState>({
     x: -9999,
     y: -9999,

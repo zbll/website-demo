@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react';
-import type { MutableRefObject } from 'react';
+import type { RefObject } from 'react';
 import { CHAR_LEVELS, FONT_FAMILY, GRID_SIZE } from './constants';
 import type { FieldState, MouseState } from './types';
 import { getIndex } from './utils';
 import { useNoiseField } from './useNoiseField';
 import { useWaveField } from './useWaveField';
 
-type CanvasRef = MutableRefObject<HTMLCanvasElement | null>;
+type CanvasRef = RefObject<HTMLCanvasElement | null>;
 
-type MouseRef = MutableRefObject<MouseState>;
+type MouseRef = RefObject<MouseState>;
 
 // 负责 canvas 初始化、场更新与绘制的主渲染 hook。
 export const useWaveRenderer = (canvasRef: CanvasRef, mouseRef: MouseRef): void => {

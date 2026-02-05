@@ -70,7 +70,7 @@ export default function Carousel({
   images = defaultImages,
   randomCount = 3,
   className = '',
-  heightClassName = 'h-[280px] sm:h-[420px]',
+  heightClassName = '',
   Indicator,
   indicatorClassName = '',
   NavigationSlot,

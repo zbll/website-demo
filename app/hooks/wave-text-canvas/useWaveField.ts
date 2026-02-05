@@ -1,4 +1,4 @@
-import type { MutableRefObject } from 'react';
+import type { RefObject } from 'react';
 import {
   BASE_RADIUS,
   FLOW_STRENGTH,
@@ -32,10 +32,7 @@ type WaveFieldApi = {
 };
 
 // 负责密度场的衰减、注入、对流与混合。
-export const useWaveField = (
-  mouseRef: MutableRefObject<MouseState>,
-  curl: CurlFn
-): WaveFieldApi => {
+export const useWaveField = (mouseRef: RefObject<MouseState>, curl: CurlFn): WaveFieldApi => {
   // 对密度场做整体衰减，形成拖尾。
   const decayField = (values: Float32Array, decay: number): void => {
     for (let i = 0; i < values.length; i += 1) {

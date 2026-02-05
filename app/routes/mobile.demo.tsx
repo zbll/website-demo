@@ -1,5 +1,5 @@
 import type { Route } from './+types/mobile.demo';
-import FeatureMobile from '../components/feature/FeatureMobile';
+import FeatureMobile from '../components/mobile.demo/FeatureMobile';
 
 export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
   return [{ title: 'Mobile Demo' }, { name: 'description', content: 'Mobile demo view.' }];
@@ -20,7 +20,7 @@ export default function MobileDemo(): React.ReactElement {
         }
 
         .mobile-demo-scroll {
-          scrollbar-width: thin;
+          scrollbar-width: none;
           scrollbar-color: rgba(148, 163, 184, 0.6) transparent;
         }
 
@@ -35,6 +35,16 @@ export default function MobileDemo(): React.ReactElement {
         .mobile-demo-scroll::-webkit-scrollbar-thumb {
           background: rgba(148, 163, 184, 0.6);
           border-radius: 2px;
+        }
+
+        .scrollbar-hidden {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+
+        .scrollbar-hidden::-webkit-scrollbar {
+          width: 0;
+          height: 0;
         }
       `}</style>
       <div className="mobile-demo-scroll h-full w-full overflow-x-hidden overflow-y-auto bg-transparent">
