@@ -17,6 +17,7 @@ export default function CategoryList({
   activeCategoryId,
   onSelect,
 }: CategoryListProps): React.ReactElement {
+  const categoryRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Map<string, HTMLButtonElement | null>>(new Map());
 
   useEffect(() => {
@@ -24,12 +25,15 @@ export default function CategoryList({
     if (!target) {
       return;
     }
-    target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    if (!categoryRef.current) {
+      return;
+    }
+    categoryRef.current.scrollTop = target.offsetTop;
   }, [activeCategoryId]);
 
   return (
     <div className="min-h-0 w-20 shrink-0 bg-white/5">
-      <div className="scrollbar-hidden h-full overflow-y-auto pb-20">
+      <div className="scrollbar-hidden h-full overflow-y-auto pb-20" ref={categoryRef}>
         {categories.map((category) => {
           const isActive = category.id === activeCategoryId;
           return (

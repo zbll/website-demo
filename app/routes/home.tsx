@@ -16,7 +16,7 @@ export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
 
 export default function Home(): React.ReactElement {
   return (
-    <main className="min-h-screen overflow-x-hidden py-12 text-white">
+    <main className="min-h-screen overflow-x-hidden py-12 pb-[300px] text-white">
       <section className="mx-auto w-full max-w-300">
         <header className="mb-8 space-y-2">
           <p className="text-sm tracking-[0.35em] text-slate-400 uppercase">Swiper Showcase</p>
@@ -35,8 +35,8 @@ export default function Home(): React.ReactElement {
         <Timeline />
         <FeatureIntro />
         <FeatureShowcase />
-        {Array.from({ length: 50 }).map((_, val) => (
-          <div key={val}>{val}</div>
+        {Array.from({ length: 100 }).map((_, index) => (
+          <div key={index}>{index}</div>
         ))}
       </section>
     </main>

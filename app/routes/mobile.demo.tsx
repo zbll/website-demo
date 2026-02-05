@@ -36,16 +36,6 @@ export default function MobileDemo(): React.ReactElement {
           background: rgba(148, 163, 184, 0.6);
           border-radius: 2px;
         }
-
-        .scrollbar-hidden {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
-
-        .scrollbar-hidden::-webkit-scrollbar {
-          width: 0;
-          height: 0;
-        }
       `}</style>
       <div className="mobile-demo-scroll h-full w-full overflow-x-hidden overflow-y-auto bg-transparent">
         <FeatureMobile />
