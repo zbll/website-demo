@@ -1,6 +1,6 @@
 import type { RefObject } from 'react';
 import { useEffect } from 'react';
-import QuantityControl from './QuantityControl';
+import ProductListItem from './ProductListItem';
 import type { ProductItem } from '~/hooks/mobile-demo/types';
 import { cn } from '~/utils/utils';
 
@@ -110,32 +110,13 @@ export default function ProductList({
                 {section.categoryLabel}
               </div>
               {section.items.map((product) => (
-                <div
+                <ProductListItem
                   key={product.id}
-                  className="flex items-center gap-3 rounded-md border-b border-white/10 bg-white/5 px-2 py-3"
-                >
-                  <div className="h-18 w-18 shrink-0 overflow-hidden rounded-md bg-white/10">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="flex min-w-0 flex-1 flex-col gap-1">
-                    <div className="text-[12px] leading-4 font-semibold text-slate-100">
-                      {product.name}
-                    </div>
-                    <div className="text-[14px] font-semibold text-rose-300">
-                      ¥{product.price.toFixed(1)}
-                    </div>
-                  </div>
-                  <QuantityControl
-                    count={cartCounts[product.id] ?? 0}
-                    onAdd={() => onAdd(product)}
-                    onRemove={() => onRemove(product.id)}
-                  />
-                </div>
+                  product={product}
+                  count={cartCounts[product.id] ?? 0}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                />
               ))}
             </div>
           ))}

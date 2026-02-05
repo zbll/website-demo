@@ -10,7 +10,7 @@ export default function FeatureMobileCartBar({
   totalPrice,
 }: FeatureMobileCartBarProps): React.ReactElement {
   return (
-    <div className="pointer-events-none absolute right-0 bottom-0 left-0 z-20 px-3 pb-3">
+    <div className="pointer-events-none fixed right-0 bottom-0 left-0 z-30 px-3 pb-3">
       <div className="pointer-events-auto flex h-14 items-center justify-between gap-3 rounded-xl border border-white/10 bg-slate-900/95 px-3 text-[11px] text-slate-100 shadow-[0_12px_30px_-18px_rgba(15,23,42,0.8)]">
         <div className="flex items-center gap-2">
           <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/10">

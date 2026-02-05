@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react';
+import CategoryListItem from './CategoryListItem';
+
 type CategoryItem = {
   id: string;
   label: string;
@@ -14,22 +17,36 @@ export default function CategoryList({
   activeCategoryId,
   onSelect,
 }: CategoryListProps): React.ReactElement {
+  const itemRefs = useRef<Map<string, HTMLButtonElement | null>>(new Map());
+
+  useEffect(() => {
+    const target = itemRefs.current.get(activeCategoryId);
+    if (!target) {
+      return;
+    }
+    target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }, [activeCategoryId]);
+
   return (
     <div className="min-h-0 w-20 shrink-0 bg-white/5">
       <div className="scrollbar-hidden h-full overflow-y-auto pb-20">
         {categories.map((category) => {
           const isActive = category.id === activeCategoryId;
           return (
-            <button
+            <CategoryListItem
               key={category.id}
-              type="button"
-              onClick={() => onSelect(category.id)}
-              className={`w-full px-2 py-2 text-left text-[10px] transition ${
-                isActive ? 'bg-white/15 text-white' : 'text-slate-300 hover:bg-white/10'
-              }`}
-            >
-              {category.label}
-            </button>
+              id={category.id}
+              label={category.label}
+              isActive={isActive}
+              onSelect={onSelect}
+              itemRef={(node) => {
+                if (node) {
+                  itemRefs.current.set(category.id, node);
+                } else {
+                  itemRefs.current.delete(category.id);
+                }
+              }}
+            />
           );
         })}
       </div>
