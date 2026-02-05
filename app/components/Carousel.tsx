@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import { cn } from '~/utils/utils';
-import CarouselIndicators, { type CarouselIndicatorProps } from './carousel/CarouselIndicators';
-import CarouselNavigation, { type CarouselNavigationProps } from './carousel/CarouselNavigation';
+import { type CarouselIndicatorProps } from './carousel/CarouselIndicators';
+import { type CarouselNavigationProps } from './carousel/CarouselNavigation';
 import CarouselDefaultSlide from './carousel/CarouselDefaultSlide';
 
 const defaultImages = [
@@ -41,6 +41,8 @@ type CarouselProps = {
   autoplay?: boolean;
   /** 是否循环。 */
   loop?: boolean;
+  /** 是否使用 CSS 模式。 */
+  cssMode?: boolean;
   /** 是否显示边框。 */
   showBorder?: boolean;
   /** 是否显示背景。 */
@@ -69,12 +71,13 @@ export default function Carousel({
   randomCount = 3,
   className = '',
   heightClassName = 'h-[280px] sm:h-[420px]',
-  Indicator = CarouselIndicators,
+  Indicator,
   indicatorClassName = '',
-  NavigationSlot = CarouselNavigation,
+  NavigationSlot,
   navigationClassName = '',
-  autoplay = true,
+  autoplay = false,
   loop = false,
+  cssMode = false,
   showBorder = true,
   showBackground = true,
   showShadow = true,
@@ -113,7 +116,7 @@ export default function Carousel({
   return (
     <div
       className={cn(
-        'group relative overflow-hidden rounded-3xl',
+        'group relative overflow-hidden',
         showBackground && 'bg-white/5',
         showBorder && 'border border-white/10',
         showShadow && 'shadow-[0_30px_60px_-30px_rgba(15,23,42,0.8)]',
@@ -121,12 +124,6 @@ export default function Carousel({
       )}
       style={{ ['--carousel-delay' as string]: `${autoplayDelay}ms` }}
     >
-      <style>{`
-        @keyframes carousel-progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-      `}</style>
       <Swiper
         modules={[Autoplay, Navigation]}
         spaceBetween={spaceBetween}
@@ -135,6 +132,7 @@ export default function Carousel({
         touchStartPreventDefault={touchStartPreventDefault}
         autoplay={autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false}
         loop={loop}
+        cssMode={cssMode}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
           setActiveIndex(swiper.realIndex);
@@ -170,14 +168,19 @@ export default function Carousel({
               </SwiperSlide>
             ))}
       </Swiper>
-      <Indicator
-        count={slideCount}
-        activeIndex={activeIndex}
-        autoplayDelay={autoplayDelay}
-        className={indicatorClassName}
-        onSelect={(index) => swiperRef.current?.slideToLoop(index)}
-      />
-      <NavigationSlot prevRef={prevRef} nextRef={nextRef} className={navigationClassName} />
+      {Indicator && (
+        <Indicator
+          count={slideCount}
+          activeIndex={activeIndex}
+          autoplay={autoplay}
+          autoplayDelay={autoplayDelay}
+          className={indicatorClassName}
+          onSelect={(index) => swiperRef.current?.slideToLoop(index)}
+        />
+      )}
+      {NavigationSlot && (
+        <NavigationSlot prevRef={prevRef} nextRef={nextRef} className={navigationClassName} />
+      )}
     </div>
   );
 }

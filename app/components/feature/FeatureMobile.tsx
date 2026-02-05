@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import Carousel from '../Carousel';
 import FeatureCarouselIndicators from './FeatureCarouselIndicators';
 import FeatureCarouselNavigation from './FeatureCarouselNavigation';
@@ -90,21 +89,18 @@ export default function FeatureMobile(): React.ReactElement {
           />
         </div>
         <div className="px-4 pt-4">
-          <Swiper
+          <Carousel
             className="h-[176px]"
-            slidesPerView={1}
-            loop={false}
-            autoplay={false}
             spaceBetween={10}
             cssMode
             touchStartPreventDefault={false}
-          >
-            {sides.map((slide, index) => (
-              <SwiperSlide key={`category-slide-${index}`} className="h-full">
-                {slide}
-              </SwiperSlide>
-            ))}
-          </Swiper>
+            slides={sides}
+            Indicator={undefined}
+            NavigationSlot={undefined}
+            showBackground={false}
+            showBorder={false}
+            showShadow={false}
+          />
         </div>
       </div>
     </div>

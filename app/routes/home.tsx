@@ -3,6 +3,8 @@ import Carousel from '../components/Carousel';
 import Timeline from '../components/timeline/Timeline';
 import FeatureIntro from '../components/feature/FeatureIntro';
 import FeatureShowcase from '../components/feature/FeatureShowcase';
+import CarouselIndicators from '~/components/carousel/CarouselIndicators';
+import CarouselNavigation from '~/components/carousel/CarouselNavigation';
 
 export function meta(_args: Route.MetaArgs): Route.MetaDescriptors {
   // 页面级元信息，用于 SEO 与预览。
@@ -23,7 +25,13 @@ export default function Home(): React.ReactElement {
             在桌面端居中显示，最大宽度 1200。每次进入页面会随机挑选 3 张图片。
           </p>
         </header>
-        <Carousel loop />
+        <Carousel
+          className="rounded-3xl"
+          loop
+          autoplay
+          Indicator={CarouselIndicators}
+          NavigationSlot={CarouselNavigation}
+        />
         <Timeline />
         <FeatureIntro />
         <FeatureShowcase />

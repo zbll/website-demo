@@ -5,6 +5,7 @@ export type CarouselIndicatorProps = {
   activeIndex: number;
   onSelect: (index: number) => void;
   autoplayDelay: number;
+  autoplay?: boolean;
   className?: string;
 };
 
@@ -13,6 +14,7 @@ export default function CarouselIndicators({
   activeIndex,
   onSelect,
   autoplayDelay,
+  autoplay = false,
   className = '',
 }: CarouselIndicatorProps): React.ReactElement {
   return (
@@ -33,20 +35,22 @@ export default function CarouselIndicators({
           className={cn(
             'group relative h-2 overflow-hidden rounded-full bg-white/20',
             'transition-[width] duration-200',
-            index === activeIndex ? 'w-12' : 'w-6'
+            index === activeIndex ? (autoplay ? 'w-12' : 'w-6 bg-white') : 'w-6'
           )}
           aria-label={`Go to slide ${index + 1}`}
           aria-current={index === activeIndex}
           onClick={() => onSelect(index)}
         >
-          <span
-            className={cn(
-              'absolute inset-y-0 left-0 w-0 rounded-full bg-white',
-              index === activeIndex
-                ? 'animate-[carousel-progress_var(--carousel-delay)_linear_forwards]'
-                : ''
-            )}
-          />
+          {autoplay && (
+            <span
+              className={cn(
+                'absolute inset-y-0 left-0 w-0 rounded-full bg-white',
+                index === activeIndex
+                  ? 'animate-[carousel-progress_var(--carousel-delay)_linear_forwards]'
+                  : ''
+              )}
+            />
+          )}
         </button>
       ))}
     </div>
