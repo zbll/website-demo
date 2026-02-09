@@ -20,7 +20,6 @@ export default function TestScreen() {
     let height = 0;
     if (imgs.length > 0) {
       height = imgs[0].clientHeight;
-      console.log(height);
     }
     const timeline = gsap.timeline({
       scrollTrigger: {

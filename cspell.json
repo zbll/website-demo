@@ -77,7 +77,8 @@
     "unoptimized",
     "gsap",
     "trae",
-    "advect"
+    "advect",
+    "ianvs"
   ],
   "useGitignore": true
 }
