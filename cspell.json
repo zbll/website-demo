@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "language": "en",
+  "language": "en, lorem, lorem-ipsum",
   "dictionaries": [
     "typescript",
     "node",
@@ -75,26 +75,9 @@
     "a11y",
     "unmount",
     "unoptimized",
-    "ianvs",
     "gsap",
     "trae",
-    "amet",
-    "adipiscing",
-    "elit",
-    "odio",
-    "praesent",
-    "cursus",
-    "dapibus",
-    "nulla",
-    "quis",
-    "nibh",
-    "duis",
-    "sagittis",
-    "mauris",
-    "fusce",
-    "augue",
     "advect"
   ],
-  "ignoreWords": [],
   "useGitignore": true
 }

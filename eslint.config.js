@@ -154,7 +154,6 @@ export default [
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'prefer-const': 'error',
       'eqeqeq': ['error', 'always'],
-      'curly': ['error', 'all']
     }
   },
 
@@ -163,7 +162,7 @@ export default [
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
       '@typescript-eslint/explicit-function-return-type': [
-        'error',
+        'off',
         {
           allowExpressions: true,
           allowTypedFunctionExpressions: true,

@@ -37,7 +37,7 @@ export default function MobileDemo(): React.ReactElement {
           border-radius: 2px;
         }
       `}</style>
-      <div className="mobile-demo-scroll h-full w-full overflow-x-hidden overflow-y-auto bg-transparent">
+      <div className="mobile-demo-scroll h-full w-full overflow-x-hidden overflow-y-auto bg-slate-900">
         <FeatureMobile />
       </div>
     </>

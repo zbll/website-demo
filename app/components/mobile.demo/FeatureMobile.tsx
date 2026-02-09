@@ -100,12 +100,14 @@ export default function FeatureMobile(): React.ReactElement {
   };
 
   return (
-    <div ref={rootRef} className="w-full bg-slate-900">
-      <div className="flex flex-col">
+    <div ref={rootRef} className="h-full w-full">
+      <div className="flex h-full flex-col">
         <FeatureMobileHeader />
-        <FeatureMobileCategorySides />
-        <div className="pt-4">
-          <div className="relative flex h-[100dvh] min-h-0 w-full bg-white/5">
+        <div className="pb-4">
+          <FeatureMobileCategorySides />
+        </div>
+        <div className="h-full">
+          <div className="relative flex h-full min-h-0 w-full bg-white/5">
             <CategoryList
               categories={shopCategories}
               activeCategoryId={activeCategoryId}
